@@ -13,3 +13,11 @@ This means both the publisher and subscriber are connecting to the same AMQP mes
 Below is the screenshot of RabbitMQ running in Docker and accessed via the management UI:
 
 ![RabbitMQ Management UI](rabbitmq.jpg)
+
+## Monitoring chart based on publisher
+
+Below is the screenshot of the charts when running both publisher and subscriber:
+
+![Monitoring chart](chart.jpg)
+
+The spike visible in the monitoring chart corresponds to the moment when the publisher program sends its batch of 5 messages to the RabbitMQ broker. When the publisher runs, it quickly sends all messages in a short burst, causing a sudden increase (spike) in the message rate and throughput metrics shown in the chart. This spike directly reflects the activity of the publisher, as the broker receives and processes the incoming messages before they are consumed by the subscriber.
